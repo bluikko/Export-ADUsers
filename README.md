@@ -42,11 +42,12 @@ Formatting will be applied to the exported columns:
 * If _Mail_ is not _sAMAccountName_@`$maildomain`, use red text.
 * If _Displayname_ is not _GivenName_ _SurName_, use red text.
 * If _primaryGroupID_ is Domain Users and _Title_ does not exist, use red text.
-* _UserAccountControl_ flags - formattings do stack if many conditions apply:
-** Blue strikethru text if account is disabled.
-** Blue italic text if account has expired password.
-** Blue underlined text if account is locked.
-** Yellow background if flags affecting security: PASSWD_NOTREQD / USE_DES_KEY_ONLY / DONT_REQ_PREAUTH.
+
+_UserAccountControl_ attribute is decoded to flag names and selected flags invoke formatting; they stack if multiple conditions apply:
+* Blue strikethru text if account is disabled.
+* Blue italic text if account has expired password.
+* Blue underlined text if account is locked.
+* Yellow background if flags affecting security: `PASSWD_NOTREQD` / `USE_DES_KEY_ONLY` / `DONT_REQ_PREAUTH`.
 
 ## TODO
 * Make `$maildomain` empty by default and do Mail attribute checks only if it is set.
