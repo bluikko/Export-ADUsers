@@ -50,7 +50,8 @@ _UserAccountControl_ attribute is decoded to flag names and selected flags invok
 * Yellow background if flags affecting security: `PASSWD_NOTREQD` / `USE_DES_KEY_ONLY` / `DONT_REQ_PREAUTH`.
 
 ## TODO
-* Make `$maildomain` empty by default and do Mail attribute checks only if it is set.
-* Mail attribute check should probably check _GivenName_._FamilyName_ instead of _sAMAccountName_.
+* Fix _PwdLastSet_ set to 0.
+* Make `$maildomain` empty by default and check _Mail_ attribute validity only if it is set.
+* _Mail_ attribute check should probably use _GivenName_._FamilyName_ instead of _sAMAccountName_.
 * Privileged/special _primaryGroupID_ might need some highlighting.
 * Group memberships should be exported somehow. Perhaps to another worksheet as a matrix with _sAMAccountName_ at Y and group name (printed vertically) at X.
