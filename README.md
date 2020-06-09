@@ -14,35 +14,35 @@ Following variables **must** be changed according to the environment:
 
 ## Output
 Following attributes will be exported:
-* sAMAccountName
-* PwdLastSet
-* UserAccountControl decoded to flags
-* Displayname
-* GivenName
-* SurName
-* Title
-* Mail (Aliasmail attribute, if not null, added as comment to the cell; each Aliasmail element separated with ';')
-* Company
-* Department
-* Office
-* EmployeeNumber
-* MobilePhone
-* primaryGroupID
-* EmployeeID
-* msNPAllowDialin
-* generationQualifier
-* EmployeeType
-* userWorkStations
-* Manager
+* _sAMAccountName_
+* _PwdLastSet_
+* _UserAccountControl_ decoded to flags
+* _Displayname_
+* _GivenName_
+* _SurName_
+* _Title_
+* _Mail_ (_Aliasmail_ attribute, if not null, added as comment to the cell; each _Aliasmail_ element separated with ';')
+* _Company_
+* _Department_
+* _Office_
+* _EmployeeNumber_
+* _MobilePhone_
+* _primaryGroupID_
+* _EmployeeID_
+* _msNPAllowDialin_
+* _generationQualifier_
+* _EmployeeType_
+* _userWorkStations_
+* _Manager_
 
 The above attributes are important for me. Many of them might not be important for someone else so feel free to delete what you don't need. Formatting hardcodes column IDs (does not use named ranges) so those might need to be changed if the columns to be exported are changed.
 
 Formatting will be applied to the exported columns:
-* If sAMAccountName is not GivenName.SurName, use red text.
-* If Mail is not sAMAccountName@$maildomain, use red text.
-* If Displayname is not GivenName SurName, use red text.
-* if primaryGroupID is Domain Users and Title does not exist, use red text.
-* UserAccountControl flags - formattings do stack if many conditions apply:
+* If _sAMAccountName_ is not _GivenName_._SurName_, use red text.
+* If _Mail_ is not _sAMAccountName_@`$maildomain`, use red text.
+* If _Displayname_ is not _GivenName_ _SurName_, use red text.
+* If _primaryGroupID_ is Domain Users and _Title_ does not exist, use red text.
+* _UserAccountControl_ flags - formattings do stack if many conditions apply:
 ** Blue strikethru text if account is disabled.
 ** Blue italic text if account has expired password.
 ** Blue underlined text if account is locked.
@@ -50,6 +50,6 @@ Formatting will be applied to the exported columns:
 
 ## TODO
 * Make `$maildomain` empty by default and do Mail attribute checks only if it is set.
-* Mail attribute check should probably check GivenName.FamilyName instead of sAMAccountName.
-* Privileged/special primaryGroupIDs might need some highlighting.
-* Group memberships should be exported somehow. Perhaps to another worksheet as a matrix with sAMAccountName at Y and group name (printed vertically) at X.
+* Mail attribute check should probably check _GivenName_._FamilyName_ instead of _sAMAccountName_.
+* Privileged/special _primaryGroupID_ might need some highlighting.
+* Group memberships should be exported somehow. Perhaps to another worksheet as a matrix with _sAMAccountName_ at Y and group name (printed vertically) at X.
