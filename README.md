@@ -43,7 +43,7 @@ Formatting will be applied to the exported columns:
 * If _Displayname_ is not _GivenName_ _SurName_, use red text.
 * If _primaryGroupID_ is Domain Users and _Title_ does not exist, use red text.
 
-_UserAccountControl_ attribute is decoded to flag names and selected flags invoke formatting; they stack if multiple conditions apply:
+_UserAccountControl_ attribute is decoded to flag names and select flags invoke formatting; they stack if multiple conditions apply:
 * Blue strikethru text if account is disabled.
 * Blue italic text if account has an expired password.
 * Blue underlined text if account is locked.
@@ -52,6 +52,6 @@ _UserAccountControl_ attribute is decoded to flag names and selected flags invok
 ## TODO
 * Fix _PwdLastSet_ set to 0 to display something sensible.
 * Make `$maildomain` empty by default and check _Mail_ attribute validity only if it is set.
-* _Mail_ attribute check should probably use _GivenName_._FamilyName_ instead of _sAMAccountName_.
-* Privileged/special _primaryGroupID_ might need some highlighting.
+* _Mail_ attribute check should probably use _GivenName_._SurName_ instead of _sAMAccountName_.
+* Privileged/special _primaryGroupID_ might need highlighting.
 * Group memberships should be exported somehow. Perhaps to another worksheet as a matrix with _sAMAccountName_ at Y and group name (printed vertically) at X.
