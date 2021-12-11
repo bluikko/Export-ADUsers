@@ -26,6 +26,11 @@ $reportfile = "D:\adusers-$(Get-Date -Format yyyy-MM-dd).xlsx"
 # Mail domain for checking Mail attribute correctness
 $maildomain = "fabrikam.com"
 
+if (!(Get-Module -ListAvailable | Where-Object {$_.Name -eq "ImportExcel"})) {
+ Write-Host "The ImportExcel module needs to be installed. See https://github.com/dfinke/ImportExcel"
+ exit 1
+}
+
 $uacflags = @("SCRIPT","ACCOUNTDISABLE","","HOMEDIR_REQUIRED","LOCKOUT","PASSWD_NOTREQD","PASSWD_CANT_CHANGE","ENCRYPTED_TEXT_PWD_ALLOWED",
  "TEMP_DUPLICATE_ACCOUNT","NORMAL_ACCOUNT","","INTERDOMAIN_TRUST_ACCOUNT","WORKSTATION_TRUST_ACCOUNT","SERVER_TRUST_ACCOUNT","","","DONT_EXPIRE_PASSWORD",
  "MNS_LOGON_ACCOUNT","SMARTCARD_REQUIRED","TRUSTED_FOR_DELEGATION","NOT_DELEGATED","USE_DES_KEY_ONLY","DONT_REQ_PREAUTH","PASSWORD_EXPIRED",
